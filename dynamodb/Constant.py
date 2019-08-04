@@ -1,0 +1,4 @@
+class Constant:
+
+    DYNAMO_DB_DEV_ACCESS_KEY_ID = ""
+    DYNAMO_DB_DEV_SECRET_ACCESS_KEY = ""
