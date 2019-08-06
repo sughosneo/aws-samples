@@ -43,6 +43,60 @@ and can support peaks of more than 20 million requests per second."
 ![ProductCategoryTable](./images/dynamodb_2.png)
 
 
-***```[Service - 2] Cloud9 IDE```*** 
+***```[Service - 3] Lambda```*** 
+-----------------------------------
+- Serverless architecture : https://aws.amazon.com/lambda/serverless-architectures-learn-more/
+- AWS Lambda is one of the implementation of serverless framework.
+- Lambda Supported Runtimes : https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
+- Function should be called with "lambda_function.lambda_handler"
+- [Ref - 1] - https://aws.amazon.com/lambda/
+- [Ref - 2] - https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+- [Ref - 2] - https://www.youtube.com/watch?v=XZggsCITQdY
+ 
+
+![Lambda-Function](./images/lambda_1.png)
+
+![Lambda-Function](./images/lambda_2.png)
+
+![Lambda-Code](./images/lambda_3.png)
+
+![Lambda-Configure-Test-Event](./images/lambda_4.png)
+
+![Lambda-Call-Monitoring-Dashboard](./images/lambda_5.png)
+
+- We can configure different trigger with any lambda function 
+- Below are the lambda function configuration with sample code and other details.
+
+![Lambda-Trigger](./images/lambda_8.png)
+
+![Lambda-Designer](./images/lambda_7.png)
+
+![Lambda-Designer](./images/lambda_9.png)
+
+***```[Service - 4] CloudWatch Log```*** 
+-----------------------------------
+- CloudWatch helps to configure different logging stream on all the aws services.
+- 
+
+![Cloud Watch - Logs](./images/cloud_watch_0.png)
+
+![Cloud Watch - Logs](./images/cloud_watch_1.png)
+
+![Cloud Watch - Detail Specific Log Stream](./images/cloud_watch_2.png)
+
+
+***```[Service - 4] API Gateway```*** 
+-----------------------------------
+- Below example shows how it can function API can be further configured and respective methods can be enabled on that.
+
+![Configured Production Information API](./images/api_gateway_2.png)
+ 
+![Configured Production Information API](./images/api_gateway_6.png)
+
+![Configured Production Information API](./images/api_gateway_4.png)
+
+![Configured Production Information API](./images/api_gateway_5.png)
+
+***```[Service - 4] Cloud9 IDE```*** 
 -----------------------------------
 
