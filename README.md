@@ -154,6 +154,19 @@ Enabling API Key : [https://www.youtube.com/watch?v=7C3-Nf-2dS8](https://www.you
 ![Cloud Watch - Detail Specific Log Stream](./images/cloud_watch_2.png)
 
 
+***```[Service - 6] Amazon Simple Storage Service / S3 ```*** 
+-----------------------------------
+
+***"S3"*** possibly one of the most popular service which AWS has. It's simple static storage service with very low cost.
+AWS provides "aws" command line interface or different popular packages like "Boto3" which helps user to ineteract with S3 buckets programmatically.
+
+- S3 bucket introduction : [https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html)
+- Boto3 tutorial : [https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html)
+- S3 bucket & IAM user : [https://www.youtube.com/watch?v=v33Kl-Kx30o](https://www.youtube.com/watch?v=v33Kl-Kx30o)
+
+  
+
+
 ***```[Service - 6] Cloud9 IDE```*** 
 -----------------------------------
 
