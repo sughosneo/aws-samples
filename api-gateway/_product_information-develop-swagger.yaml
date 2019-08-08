@@ -1,0 +1,30 @@
+---
+swagger: "2.0"
+info:
+  version: "2019-08-08T14:00:08Z"
+  title: "/product/information"
+host: "<random_id>.execute-api.us-east-1.amazonaws.com"
+basePath: "/develop"
+schemes:
+- "https"
+paths:
+  /getProductInformation:
+    post:
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      security:
+      - api_key: []
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"
