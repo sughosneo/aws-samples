@@ -165,7 +165,52 @@ AWS provides "aws" command line interface or different popular packages like "Bo
 - S3 bucket & IAM user : [https://www.youtube.com/watch?v=v33Kl-Kx30o](https://www.youtube.com/watch?v=v33Kl-Kx30o)
 
   
+***```[Service - 7] Amazon Simple Queue Service / SQS ```*** 
+----------------------------------------------------------
+- AWS message queue service is one of the oldest service.
+- It's basically based on the concept of Publisher / Subscriber messaging model.  
+- It's a form of asynchronous service-to-service communication used in serverless and microservices architecture.
+- Push/Pull delivery, Schedule or Delay Delivery, At least once delivery, Exactly once delivery, Message Prioritization.
+- There are 2 types of message queue available right now.
+1) Standard message queue 2) FIFO queue.
 
+Below steps shows how we can create a queue and then interact with programmatically.
+
+- Creating a queue and choosing one of the type.
+
+![Create Queue](./images/queue_1.png)
+
+- Configuring queue if required changing default value
+
+![Configure Queue](./images/queue_2.png)
+
+- Showing details of individual queue.
+
+![Details of Queue](./images/queue_3.png)
+
+- After configuration while writing the message in the queue, we may see that it fails with following error.
+
+- Error : "The queue should either have ContentBasedDeduplication enabled or MessageDeduplicationId provided explicitly"
+- That's because of [https://stackoverflow.com/questions/28111941/sqs-delivering-a-message-only-once](https://stackoverflow.com/questions/28111941/sqs-delivering-a-message-only-once)
+- So present configuration of the queue would be :
+
+![Reconfiguring the Queue](./images/queue_4.png)
+
+- After writing the message the queue response gives back some
+
+```ptyhon
+    {'MD5OfMessageBody': '6975ce72b39ab4196350fdc748d7997d', 'MessageId': '9882c10c-b8a3-44f1-addc-afb67a9112a6', 'SequenceNumber': '18847494785008879616', 'ResponseMetadata': {'RequestId': '347f0a4d-f113-520c-8d88-5f856dc18f57', 'HTTPStatusCode': 200, 'HTTPHeaders': {'x-amzn-requestid': '347f0a4d-f113-520c-8d88-5f856dc18f57', 'date': 'Sat, 10 Aug 2019 10:21:06 GMT', 'content-type': 'text/xml', 'content-length': '431'}, 'RetryAttempts': 0}}
+```
+
+```References```
+
+Message Queue : [https://aws.amazon.com/message-queue/](https://aws.amazon.com/message-queue/)
+Video Tutorial : [https://www.youtube.com/watch?v=UesxWuZMZqI&feature=youtu.be](https://www.youtube.com/watch?v=UesxWuZMZqI&feature=youtu.be)
+Message Queue Feature: [https://aws.amazon.com/message-queue/features/](https://aws.amazon.com/message-queue/features/)
+Blog - 1 : [https://aws.amazon.com/blogs/developer/using-python-and-amazon-sqs-fifo-queues-to-preserve-message-sequencing/](https://aws.amazon.com/blogs/developer/using-python-and-amazon-sqs-fifo-queues-to-preserve-message-sequencing/)
+Blog - 2 : [https://aws.amazon.com/blogs/aws/new-for-amazon-simple-queue-service-fifo-queues-with-exactly-once-delivery-deduplication/](https://aws.amazon.com/blogs/aws/new-for-amazon-simple-queue-service-fifo-queues-with-exactly-once-delivery-deduplication/)
+Send Message In Queue : [https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message)
+SQS Boto3 Reference : [https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html)
 
 ***```[Service - 6] Cloud9 IDE```*** 
 -----------------------------------
