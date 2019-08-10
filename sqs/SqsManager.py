@@ -70,7 +70,7 @@ if __name__ == '__main__':
         queueManager = SqsManager()
 
         # message formation based on the action
-        message = {"action":"PRODUCT_INFO_API_CALL","data":{"product_id":1}}
+        message = {"action":"GET","api_info":{"name":"product_information_api","url":"http://<dns_name>/develop/v.1.0/product/information","type":"REST"},"data":{"product_id":1}}
 
         # Write Message
         queueManager.writeMessageToQueue(json.dumps(message))

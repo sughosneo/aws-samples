@@ -201,6 +201,21 @@ Below steps shows how we can create a queue and then interact with programmatica
 ```ptyhon
     {'MD5OfMessageBody': '6975ce72b39ab4196350fdc748d7997d', 'MessageId': '9882c10c-b8a3-44f1-addc-afb67a9112a6', 'SequenceNumber': '18847494785008879616', 'ResponseMetadata': {'RequestId': '347f0a4d-f113-520c-8d88-5f856dc18f57', 'HTTPStatusCode': 200, 'HTTPHeaders': {'x-amzn-requestid': '347f0a4d-f113-520c-8d88-5f856dc18f57', 'date': 'Sat, 10 Aug 2019 10:21:06 GMT', 'content-type': 'text/xml', 'content-length': '431'}, 'RetryAttempts': 0}}
 ```
+- A complete message communication trace can be captured something like as per below. 
+
+```python
+    
+    trying to initiate the SQS resource connection object !
+    In writeMessageToQueue() method !
+    {'MD5OfMessageBody': 'f5426f84d805284ed37f975b402c1542', 'MessageId': 'e98d31bc-9d91-4cee-b762-3ad1b2153498', 'SequenceNumber': '18847495129023983616', 'ResponseMetadata': {'RequestId': '57dde208-a7bb-5680-82ef-b7c005aa823e', 'HTTPStatusCode': 200, 'HTTPHeaders': {'x-amzn-requestid': '57dde208-a7bb-5680-82ef-b7c005aa823e', 'date': 'Sat, 10 Aug 2019 10:43:29 GMT', 'content-type': 'text/xml', 'content-length': '431'}, 'RetryAttempts': 0}}
+    In readMessageFromQueue() method !
+    sqs.Message(queue_url='https://ap-south-1.queue.amazonaws.com/936264745787/ProductInformationMessageQueue.fifo', receipt_handle='AQEB3NIBZMTEW6ScGE6Ygd8peqV0R9ijC5awiXmPnC/aa2nYqUrOtSLgNn1haTe+yalTgFNKAfEbcTvS3YgvqHr9gezFMmuwu99vO4XCgCgQgbK75V0KxAVfOnwg+StUKRf/ZQd84l8S9j+FC2n7NjoMv1x9rfnoflwt9MKUEDn4N4GOLlio1UT+tlMt5xqyb08BRsswVBjDcJRKz1SpcFUtAEwRbzRRMPoPcjfDFQrctuzyFO6JClzAaoG+jXnywwucpKzYJa1gEbDkDYUd3QNW+ItijsI/zBq8Sf3J92hjgrnMgQ9Of4QdWKnS7bs2UiPH')
+    Message Got as an action as :: {"action": "PRODUCT_INFO_API_CALL", "data": {"product_id": 1}}
+    
+    Process finished with exit code 0
+
+    
+```
 
 ```References```
 
