@@ -168,13 +168,14 @@ AWS provides "aws" command line interface or different popular packages like "Bo
 ***```[Service - 7] Amazon Simple Queue Service / SQS ```*** 
 ----------------------------------------------------------
 - AWS message queue service is one of the oldest service.
+- This is a Pull based service, where consumer actually pull the information from queue and start process it.
 - It's basically based on the concept of Publisher / Subscriber messaging model.  
 - It's a form of asynchronous service-to-service communication used in serverless and microservices architecture.
 - Push/Pull delivery, Schedule or Delay Delivery, At least once delivery, Exactly once delivery, Message Prioritization.
 - There are 2 types of message queue available right now.
 1) Standard message queue 2) FIFO queue.
 
-Below steps shows how we can create a queue and then interact with programmatically.
+Below steps shows how we can create a queue and then interact with it programmatically.
 
 - Creating a queue and choosing one of the type.
 
@@ -227,6 +228,66 @@ Blog - 2 : [https://aws.amazon.com/blogs/aws/new-for-amazon-simple-queue-service
 Send Message In Queue : [https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message)
 SQS Boto3 Reference : [https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html)
 
-***```[Service - 6] Cloud9 IDE```*** 
+***```[Service - 8] Amazon Simple Notification Service / SNS ```*** 
+----------------------------------------------------------
+- This is primarily Push based service.
+- It's managed messaging service that let's actually decouple publisher from subscribers.
+- Where in SQS actually publish one message to the queue and subscriber pulls that to do the further processing. Where as
+    in SNS through the topic actually messages gets pushed to either mobile devices or desktop devices or sends a message or even sends an email.
+- Now publisher would send the message and subscriber(s) would actually delivery messages to the subscribed devices.
+
+Below steps shows how we can configure SNS service and then interact with it programmatically.
+
+- Configure topic for a SNS.
+
+![Configure Topic](./images/sns_1.png)
+
+- Configure the access policy for the a topic.
+
+![Configure Access Policy for a topic](./images/sns_2.png)
+
+- Configure the delivery policy for the a topic.
+
+![Configure Access Policy for a topic](./images/sns_3.png)
+
+- Configure the SNS subscriber for to receive the messages. There are many protocol available, 
+in this example we have chosen email as protocol.
+
+![Configure Email Subscriber](./images/sns_5.png)
+
+- Each individual subscriber has to confirm then only "Pending Confirmation" would get away from the topic configuration page.
+
+![Confirm Subscription](./images/sns_6.png)
+
+- Below configuration details can be seen again.
+ 
+![Confirm Subscription](./images/sns_7.png)
+
+- While looking into the Boto3 documentation I could see that low level "client" seems to be much more prominent.
+- So in our code example we have actually dealt with client API more.
+- Below is the trace.
+
+```python
+    
+    trying to initiate the connection with SNS topic !
+    In publishMessageToTopic() method !
+    {'MessageId': 'e55b26b9-2364-5b5d-9e07-7371c8b09091', 'ResponseMetadata': {'RequestId': '16614d1c-6af9-5de8-891d-18d4812d1624', 'HTTPStatusCode': 200, 'HTTPHeaders': {'x-amzn-requestid': '16614d1c-6af9-5de8-891d-18d4812d1624', 'content-type': 'text/xml', 'content-length': '294', 'date': 'Sat, 10 Aug 2019 15:58:12 GMT'}, 'RetryAttempts': 0}}
+
+```
+
+- We would just need to make sure that message gets published into the topic. Rest SNS service takes care pushing that message to the respective subscriber.
+
+![Final Message To Email](./images/sns_8.png)
+   
+
+```References```
+- Setting up access for SNS : [https://docs.aws.amazon.com/sns/latest/dg/sns-setting-up.html](https://docs.aws.amazon.com/sns/latest/dg/sns-setting-up.html)
+- SNS : [https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html)
+- SNS - quick guide : [https://www.youtube.com/watch?v=sIBUqxnOGQQ](https://www.youtube.com/watch?v=sIBUqxnOGQQ)
+- SNS - Email Subscriber : [https://www.youtube.com/watch?v=YC-sVSbeowA](https://www.youtube.com/watch?v=YC-sVSbeowA) 
+- Pub & Sub : [https://www.youtube.com/watch?v=c_WNBmEc6EE](https://www.youtube.com/watch?v=c_WNBmEc6EE)
+- Blog - 1 : [https://bradmontgomery.net/blog/sending-sms-messages-amazon-sns-and-python/](https://bradmontgomery.net/blog/sending-sms-messages-amazon-sns-and-python/) 
+
+***```[Service - 9] Cloud9 IDE```*** 
 -----------------------------------
 
