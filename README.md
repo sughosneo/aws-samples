@@ -295,6 +295,72 @@ in this example we have chosen email as protocol.
 - Pub & Sub : [https://www.youtube.com/watch?v=c_WNBmEc6EE](https://www.youtube.com/watch?v=c_WNBmEc6EE)
 - Blog - 1 : [https://bradmontgomery.net/blog/sending-sms-messages-amazon-sns-and-python/](https://bradmontgomery.net/blog/sending-sms-messages-amazon-sns-and-python/) 
 
-***```[Service - 9] Cloud9 IDE```*** 
+***```[Service - 9] Cognito```*** 
+-----------------------------------
+- It's one of the popular services which provides identity to developed of the applications.
+- It provides identity token for authentication of a user and also handles entire authorization process for any applications.
+- We have emerged from -- > Storing Simple Password to --> Hash Based Password Storing --> Salt Hash based password storing --->
+not storing any password using [SRP protocol](https://en.wikipedia.org/wiki/Secure_Remote_Password_protocol)
+And when we talked about managing different user groups or pools or managing their identities with large number of users at scale. Then cognito might be
+a great choice. A simple flow how a aws Cognito can authenticate one user request could be something like as per below.
+
+![Cognito User Pool Name](./images/cognito_token_flow_2.png)
+
+For some of the application if it's required to do custom verification then in that scenario we may use below flow with Cognito and AWS lambda.
+
+![Cognito User Pool Name](./images/cognito_token_flow_3.png)
+
+
+- Let's understand one of the different which seems to be bit confusing. If I have IAM service to authorize different user for different 
+aws services. Then why should I be bother to incorporate my Cognito pool information along with IAM (identity access management). 
+Below flow would help to understand that. We know that from Cognito user pool we would authenticate the user after accessing JWT token. With that token we would go to the Cognito Fedaration Identity pool 
+to get the access key and secret token for any of the aws managed services to use (Like S3 or aws Lambda).
+
+![Cognito User Pool Name](./images/cognito_auth_flow_2.png)
+
+Image Source : http://blog.jacobmarks.com/2016/12/amazon-cognito-user-pool-admin.html
+
+
+Below set of steps actually shows how to configure a User Pool in Cognito and manage to interact with it.
+
+- Choosing the correct name of the User Pool.
+ 
+![Cognito User Pool Name](./images/cognito_start_1.png)
+
+- Setting up the correct set of attributes of the UserPool.
+
+![Cognito Pool Attributes](./images/cognito_2.png)
+
+- User also need to set up the password policies.
+
+![Setting up Password Policies](./images/cognito_3.png)
+
+- Further attributes can be set it up pretty easily. 
+
+![attributes](./images/cognito_4.png)
+
+![attributes](./images/cognito_5.png)
+
+![attributes](./images/cognito_6.png)
+
+- And then need to define which client would have an access to this Cognito User Pool.
+ 
+![Configuring Client App](./images/cognito_8.png)
+
+- Before submitting we would require to review the details.
+
+![Configuring Client App](./images/cognito_9.png)
+
+- User has to note down the User Pool Id along with other details for further using in their applications.  
+
+
+```References```
+- https://aws.amazon.com/cognito/
+- Explaination with UI : Part-1: [https://www.youtube.com/watch?v=EaDMG4amEfk](https://www.youtube.com/watch?v=EaDMG4amEfk)
+- Authentication with Cognito : [https://www.integralist.co.uk/posts/cognito/](https://www.integralist.co.uk/posts/cognito/) 
+- Authentication serverless : [https://www.youtube.com/watch?v=VZqG7HjT2AQ&t=2882s](https://www.youtube.com/watch?v=VZqG7HjT2AQ&t=2882s)
+
+
+***```[Service - 10] Cloud9 IDE```*** 
 -----------------------------------
 
