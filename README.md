@@ -310,6 +310,7 @@ For some of the application if it's required to do custom verification then in t
 
 ![Cognito User Pool Name](./images/cognito_token_flow_3.png)
 
+Image Sources : https://www.youtube.com/watch?v=VZqG7HjT2AQ&t=2882s
 
 - Let's understand one of the different which seems to be bit confusing. If I have IAM service to authorize different user for different 
 aws services. Then why should I be bother to incorporate my Cognito pool information along with IAM (identity access management). 
